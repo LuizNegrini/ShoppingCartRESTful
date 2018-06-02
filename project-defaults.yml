@@ -1,0 +1,10 @@
+swarm:
+  port:
+    offset: 0
+  datasources:
+    data-sources:
+      shoppingCart:
+        driver-name: h2
+        connection-url: jdbc:h2:C:/shoppingCart
+        user-name: sa
+        password: sa

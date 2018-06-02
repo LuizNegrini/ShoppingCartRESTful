@@ -1,1 +1,1 @@
-_Shopping cart example_\
+Shopping cart example
