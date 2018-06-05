@@ -1,67 +1,46 @@
 package bases;
 
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
-import javax.persistence.*;
-
+@Transactional
 public abstract class BaseDAO<TEntity extends BaseEntity> {
 
     @PersistenceContext
-    private EntityManager manager;
-    private EntityTransaction transaction;
+    protected EntityManager manager;
 
     private final Class<TEntity> type;
 
     public BaseDAO(Class<TEntity> type) {
-        transaction = manager.getTransaction();
         this.type = type;
     }
 
     public TEntity Insert(TEntity entity) {
-        BeginTransaction();
         TEntity createdObject = manager.merge(entity);
-        CommitAndClose();
 
         return createdObject;
     }
 
-    public void Delete(TEntity entity) {
-        BeginTransaction();
+    public void Delete(int id) {
+        TEntity object = manager.getReference(this.type, id);
 
-        TEntity object = manager.find(type, entity.getId());
-        manager.remove(object);
-
-        CommitAndClose();
+        if (object != null) {
+            manager.getReference(this.type, id);
+            manager.remove(object);
+        }
     }
 
     public TEntity GetBy(int id) {
-        BeginTransaction();
         TEntity object = manager.find(type, id);
-        Close();
 
         return object;
     }
 
     public List<TEntity> GetAll() {
-        BeginTransaction();
         List<TEntity> objs = manager.createQuery(String.format("SELECT entity FROM %s entity", type.getName())).getResultList();
 
-        Close();
         return objs;
-    }
-
-    private void BeginTransaction() {
-        if (!transaction.isActive())
-            transaction.begin();
-    }
-
-    private void CommitAndClose() {
-        transaction.commit();
-        Close();
-    }
-
-    private void Close() {
-        if (manager.isOpen())
-            manager.close();
     }
 }

@@ -35,7 +35,6 @@
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
         <version>${version.wildfly.swarm}</version>
-
         <executions>
           <execution>
             <goals>
@@ -51,11 +50,11 @@
             <jvmArgument>-XX:MaxMetaspaceExpansion=16M</jvmArgument>
             <jvmArgument>-Xss1m</jvmArgument>
           </jvmArguments>
-          <!--<debugPort>8787</debugPort>-->
+          <!--<debugPort>5005</debugPort>-->
           <!--<properties>-->
-          <!--<swarm.propertiesFile></swarm.propertiesFile>-->
-          <!--<swarm.port.offset>10</swarm.port.offset>-->
-          <!--<swarm.debug.port>8787</swarm.debug.port>-->
+            <!--<swarm.propertiesFile></swarm.propertiesFile>-->
+            <!--<swarm.port.offset>10</swarm.port.offset>-->
+            <!--<swarm.debug.port>5005</swarm.debug.port>-->
           <!--</properties>-->
         </configuration>
       </plugin>
@@ -143,11 +142,8 @@
       <groupId>com.fasterxml.jackson.datatype</groupId>
       <artifactId>jackson-datatype-jsr310</artifactId>
       <version>2.7.4</version>
-      <!--<scope>provided</scope>-->
     </dependency>
 
-    <!--2Tests -->
-    <!-- https://mvnrepository.com/artifact/com.jayway.restassured/rest-assured -->
     <dependency>
       <groupId>com.jayway.restassured</groupId>
       <artifactId>rest-assured</artifactId>
