@@ -23,6 +23,12 @@ public abstract class BaseDAO<TEntity extends BaseEntity> {
         return createdObject;
     }
 
+    public TEntity Update(TEntity entity) {
+        TEntity ent = manager.getReference(this.type, entity.getId());
+        ent = entity;
+        return ent;
+    }
+
     public void Delete(int id) {
         TEntity object = manager.getReference(this.type, id);
 
