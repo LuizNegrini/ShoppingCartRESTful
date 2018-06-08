@@ -62,13 +62,11 @@
   </build>
 
   <dependencies>
-    <!-- Java EE 7 dependency -->
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-api</artifactId>
       <version>7.0</version>
     </dependency>
-    <!-- WildFly Swarm Fractions -->
     <dependency>
       <groupId>org.wildfly.swarm</groupId>
       <artifactId>transactions</artifactId>
@@ -137,7 +135,6 @@
       <version>2.7.4</version>
       <scope>provided</scope>
     </dependency>
-
     <dependency>
       <groupId>com.fasterxml.jackson.datatype</groupId>
       <artifactId>jackson-datatype-jsr310</artifactId>
