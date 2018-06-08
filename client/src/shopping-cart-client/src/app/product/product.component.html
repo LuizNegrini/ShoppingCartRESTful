@@ -1,0 +1,21 @@
+<h4>Create new Product</h4>
+<form [formGroup]="formGroup" (ngSubmit)="create()">
+  <div>
+    <label for="name">Name:</label>
+    <input formControlName="name" type="text" id="name" />
+  </div>
+  <div>
+    <label for="value">Value:</label>
+    <input formControlName="value" type="number" id="value" />
+  </div>
+  <button class="btn waves-effect waves-light" type="submit" [disabled]="!formGroup.valid">
+    create
+  </button>
+</form>
+
+<h4>List of products:</h4>
+<div class="collection">
+  <a *ngFor="let product of products" class="collection-item">
+    <span class="badge">${{ product.value }}</span>{{ product.name }}
+  </a>
+<div>

@@ -1,0 +1,22 @@
+.table {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-column {
+    width: 80%;
+}
+
+.column {
+    width: 20%;
+}
+
+.badge {
+    width: 15%;
+}
+
+.input {
+    height: 1.5rem !important;
+}

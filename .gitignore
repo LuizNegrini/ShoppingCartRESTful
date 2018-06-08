@@ -26,6 +26,8 @@ hs_err_pid*
 ### Example user template template
 ### Example user template
 
+client/src/shopping-cart-client/node_modules
+
 # IntelliJ project files
 .idea
 .settings

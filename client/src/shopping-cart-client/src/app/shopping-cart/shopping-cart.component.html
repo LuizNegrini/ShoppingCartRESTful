@@ -1,0 +1,47 @@
+<h4>Create new Shopping Cart</h4>
+<form [formGroup]="itemFormGroup">
+  <div class="collection">
+    <a *ngFor="let product of productsList" class="collection-item">
+      <span (click)="addItem(product)" class="new badge btn waves-effect waves-light">
+        add
+      </span>
+      <span class="badge">
+        <input formControlName="quantity" class="input" type="number" placeholder="Qnt.">
+      </span>
+      <span class="badge">
+        ${{ product.value }}
+      </span>
+
+      {{ product.name }}
+    </a>
+  </div>
+</form>
+
+<ul class="collection with-header">
+  <li class="collection-header">
+    <h4>Shopping Cart Itens</h4>
+  </li>
+  <li *ngFor="let item of shoppingCart.itens" class="collection-item">
+    {{ item.product.name }}
+    <span class="badge">
+      Val.: ${{ item.product.value }}
+    </span>
+    <span class="badge">
+      Qnt.: {{ item.quantity }}
+    </span>
+  </li>
+</ul>
+<button class="btn waves-effect waves-light" (click)="create()">
+  finalize
+</button>
+<h3>Total: ${{ shoppingCart.total }}</h3>
+
+<h4>List of Shopping Carts:</h4>
+<div class="collection">
+  <a *ngFor="let cart of shoppingCarts; let i = index" class="collection-item">
+    Cart {{ i }}
+    <span class="badge">
+      ${{ cart.total }}
+    </span>
+  </a>
+</div>
