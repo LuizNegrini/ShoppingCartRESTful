@@ -17,7 +17,7 @@ This project was developed for purposes of studies on the language java, Angular
   Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8080/product. (Reason: CORS header ‘Access-Control-Allow-Origin’ missing).
 ```
   
-  - Resolve by installing one of the following extensions:
+  - Please resolve by installing one of the following extensions:
     - [For Chrome]
     - [For Firefox]
 
