@@ -40,6 +40,9 @@
 <div class="collection">
   <a *ngFor="let cart of shoppingCarts; let i = index" class="collection-item">
     Cart {{ i }}
+    <span (click)="delete(cart.id)" class="my-badge badge waves-effect waves-light">
+      delete
+    </span>
     <span class="badge">
       ${{ cart.total }}
     </span>

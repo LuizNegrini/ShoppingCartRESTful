@@ -64,6 +64,13 @@ export class ShoppingCartComponent extends RequestHandler implements OnInit {
       });
   }
 
+  delete(id: number) {
+    this.DELETE(id)
+      .then((data) => {
+        this.getShoppingCarts();
+      });
+  }
+
   getShoppingCarts() {
     this.GET()
       .then((data) => {

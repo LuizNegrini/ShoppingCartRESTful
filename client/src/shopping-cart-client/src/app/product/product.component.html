@@ -16,6 +16,12 @@
 <h4>List of products:</h4>
 <div class="collection">
   <a *ngFor="let product of products" class="collection-item">
-    <span class="badge">${{ product.value }}</span>{{ product.name }}
+      <span (click)="delete(product.id)" class="my-badge badge waves-effect waves-light">
+          delete
+        </span>
+    <span class="badge">
+      ${{ product.value }}
+    </span>
+    {{ product.name }}
   </a>
 <div>

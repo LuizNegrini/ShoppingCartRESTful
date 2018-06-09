@@ -39,4 +39,11 @@ export class ProductComponent extends RequestHandler implements OnInit {
         this.products = data;
       });
   }
+
+  delete(id: number) {
+    this.DELETE(id)
+      .then((data) => {
+        this.getProducts();
+      });
+  }
 }

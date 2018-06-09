@@ -38,7 +38,18 @@ export class RequestHandler {
                     let json = data.json();
                     resolve(json);
                 }, err => {
-                    reject("Error on insert");
+                    reject("Not found entities");
+                });
+        });
+    }
+
+    DELETE(id: number) {
+        return new Promise((resolve, reject) => {
+            this._http.delete(this.endpoint+"/"+id, { headers: this.headers[0] })
+                .subscribe(data => {
+                    resolve(data);
+                }, err => {
+                    reject("Object not deleted");
                 });
         });
     }
