@@ -13,8 +13,7 @@ import { ShoppingCart } from '../classes/shoppingCart';
 export class ShoppingCartComponent extends RequestHandler implements OnInit {
 
   productsList = [];
-  selectedItems = [];
-  itemFormGroup: FormGroup;  
+  itemFormGroup: FormGroup;
   shoppingCart: ShoppingCart;
   shoppingCarts: {};
 
@@ -40,7 +39,7 @@ export class ShoppingCartComponent extends RequestHandler implements OnInit {
       .GET()
       .then((data) => this.productsList = data as Array<Object>);
 
-      this.getShoppingCarts();
+    this.getShoppingCarts();
   }
 
   addItem(product: Object) {
@@ -51,7 +50,6 @@ export class ShoppingCartComponent extends RequestHandler implements OnInit {
     this.itemFormGroup.value.product = product;
     this.shoppingCart.addItem(this.itemFormGroup.value);
 
-    this.selectedItems.push(this.itemFormGroup.value.product);
     this.itemFormGroup.reset();
     this.formGroup.reset();
   }
@@ -76,5 +74,9 @@ export class ShoppingCartComponent extends RequestHandler implements OnInit {
       .then((data) => {
         this.shoppingCarts = data;
       });
+  }
+
+  remove(id: number) {
+    this.shoppingCart.removeItem(id);
   }
 }
