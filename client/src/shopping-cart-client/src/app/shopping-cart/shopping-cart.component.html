@@ -42,7 +42,7 @@
 <h4>List of Shopping Carts:</h4>
 <div class="collection">
   <a *ngFor="let cart of shoppingCarts; let i = index" class="collection-item">
-    Cart {{ i }}
+    Cart {{ i + 1 }}
     <span (click)="delete(cart.id)" class="my-badge badge waves-effect waves-light">
       delete
     </span>
