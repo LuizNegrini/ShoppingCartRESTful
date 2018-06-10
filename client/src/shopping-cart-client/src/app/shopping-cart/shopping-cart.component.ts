@@ -76,7 +76,7 @@ export class ShoppingCartComponent extends RequestHandler implements OnInit {
       });
   }
 
-  remove(id: number) {
-    this.shoppingCart.removeItem(id);
+  remove(productId: number) {
+    this.shoppingCart.removeItem(productId);
   }
 }

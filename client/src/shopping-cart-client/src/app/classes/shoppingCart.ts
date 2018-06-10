@@ -14,12 +14,25 @@ export class ShoppingCart extends EntityBase {
     }
 
     addItem(item: Item) {
-        this.itens.push(item);
+        let p = this.findItem(item.product.id);
+        if (p) {
+            this.incrase(p, item.quantity);
+        } else 
+            this.itens.push(item);
+        
         this.calculateAmount();
     }
 
+    private incrase(item: Item, quantity: number){
+        this.findItem(item.product.id).quantity += quantity;
+    }
+
+    private findItem(productId: number): Item {
+        return this.itens.find(x => x.product.id === productId);
+    }
+
     removeItem(id: number) {
-        let p = this.itens.find(x => x.product.id === id);
+        let p = this.findItem(id);
         let index = this.itens.indexOf(p);
 
         if (index !== -1)
@@ -31,7 +44,7 @@ export class ShoppingCart extends EntityBase {
     private calculateAmount() {
         this.total = 0;
         this.itens.forEach((item) => {
-            this.total += item['quantity'] * item['product']['value'];
+            this.total += item.quantity * item.product.value;
         });
     }
 }
